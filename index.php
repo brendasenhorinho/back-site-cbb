@@ -1,3 +1,12 @@
+<?php
+session_start();
+include_once 'Database.php';
+
+$database = new DataBase();
+$db = $database->getConnection();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +16,6 @@
 </head>
 <body>
     <h1>teste</h1>
+    
 </body>
 </html>
