@@ -1,6 +1,6 @@
 <?php
 include_once 'Database.php';
-include_once 'voluntario.php';
+include_once 'usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     $id = intval($_POST['id']);
@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     $database = new Database();
     $db = $database->getConnection();
 
-    $voluntario = new Voluntario($db);
-    $voluntario->id = $id;
+    $usuario = new Usuario($db);
+    $usuario->id = $id;
 
-    if ($voluntario->ativar()) {
-        header("Location: adm.html?msg=ativado");
+    if ($usuario->inativar()) {
+        header("Location: adm.html?msg=inativado");
         exit;
     } else {
         header("Location: adm.html?msg=erro");
