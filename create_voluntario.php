@@ -2,6 +2,8 @@
 include_once 'Database.php';
 include_once 'voluntario.php';
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = htmlspecialchars(trim($_POST['nome']));
     $endereco = htmlspecialchars(trim($_POST['endereco']));
@@ -31,10 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $voluntario->status = 'ativo';
 
     if ($voluntario->cadastrar()) {
-        header("Location: index.php?msg=sucesso");
+        header("Location: adm.html?msg=sucesso");
         exit;
     } else {
-        header("Location: index.php?msg=erro");
+        header("Location: adm.html?msg=erro");
         exit;
     }
 }
